@@ -1,5 +1,6 @@
 package com.jinyu.AOP.annotation;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -43,5 +44,27 @@ public class MyAspect1 {
      * */
     @Pointcut("execution(* com.jinyu.AOP.ProductService.doSomething(..))")
     public void doSomething(){}
+
+
+    /**
+     * 通知传参
+     * 两种写法，切点表达式包含args，就不需要argNames参数
+     * 传一个基本类型
+     * */
+//    @Before(value = "execution(* com.jinyu.AOP.ProductService.output(..)) && args(a)",argNames = "a")
+    @Before("execution(* com.jinyu.AOP.ProductService.output(..)) && args(a, ..)")
+    public void outputCheckParam(int a){
+        System.out.println("i got the param:" + a);
+    }
+
+
+    /**
+     * 传一个对象
+     * @param p
+     */
+    @Before(value = "execution(* com.jinyu.AOP.ProductService.outputObject(..)) && args(p,..)")
+    public void objectParamCheck(Param p){
+        System.out.println("i got the Param :" + p.getName());
+    }
 
 }

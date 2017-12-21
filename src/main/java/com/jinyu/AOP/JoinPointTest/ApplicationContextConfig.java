@@ -1,6 +1,8 @@
-package com.jinyu.AOP.annotation;
+package com.jinyu.AOP.JoinPointTest;
 
 import com.jinyu.AOP.ProductService;
+import com.jinyu.AOP.annotation.MyAspect1;
+import com.jinyu.AOP.annotation.Param;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -19,34 +21,20 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @EnableAspectJAutoProxy
 public class ApplicationContextConfig {
 
-
-    /**
-     * 核心逻辑bean
-     * @return
-     */
     @Bean
-    ProductService productService(){
-        return new ProductService();
+    AopAspect myAspect(){
+        return new AopAspect();
     }
 
-    /**
-     * 切面bean
-     * @return
-     */
     @Bean
-    MyAspect1 myAspect(){
-        return new MyAspect1();
+    TargetClass targetClass(){
+        return new TargetClass();
     }
 
     public static void main(String[] args) {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(ApplicationContextConfig.class);
-        ProductService productService = (ProductService) ctx.getBean("productService");
-        productService.doSomething();
-
-        // with param
-        productService.output(5);
-        Param p = new Param();
-        p.setName("aaa");
-        productService.outputObject(p);
+        TargetClass targetClass = (TargetClass) ctx.getBean("targetClass");
+        String result = targetClass.joint("spring","aop");
+        System.out.println("result:" + result);
     }
 }
