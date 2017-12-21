@@ -1,4 +1,4 @@
-package com.jinyu.AOP.JoinPointTest;
+package com.jinyu.framework.AOP.JoinPointTest;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -7,8 +7,6 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
 /**
@@ -23,7 +21,7 @@ public class AopAspect {
      * 定义一个切入点表达式,用来确定哪些类需要代理
      * execution(* aopdemo.*.*(..))代表aopdemo包下所有类的所有方法都会被代理
      */
-    @Pointcut("execution(* com.jinyu.AOP.JoinPointTest.TargetClass.joint(..))")
+    @Pointcut("execution(* com.jinyu.framework.AOP.JoinPointTest.TargetClass.joint(..))")
     public void declareJoinPointerExpression() {}
 
     /**

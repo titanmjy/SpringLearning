@@ -1,11 +1,9 @@
-package com.jinyu.AOP.annotation;
+package com.jinyu.framework.AOP.annotation;
 
-import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.stereotype.Component;
 
 /**
  * @Description:
@@ -16,12 +14,12 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class MyAspect1 {
 
-//    @Before("execution(* com.jinyu.AOP.ProductService.doSomething(..))")
+//    @Before("execution(* com.jinyu.framework.AOP.ProductService.doSomething(..))")
 //    public void doAccessCheck() {
 //        System.out.println("in before check");
 //    }
 //
-//    @After("execution(* com.jinyu.AOP.ProductService.doSomething(..))")
+//    @After("execution(* com.jinyu.framework.AOP.ProductService.doSomething(..))")
 //    public void checkAfter(){
 //        System.out.println("after check");
 //    }
@@ -42,7 +40,7 @@ public class MyAspect1 {
     /**
      * 定义切点名
      * */
-    @Pointcut("execution(* com.jinyu.AOP.ProductService.doSomething(..))")
+    @Pointcut("execution(* com.jinyu.framework.AOP.ProductService.doSomething(..))")
     public void doSomething(){}
 
 
@@ -51,8 +49,8 @@ public class MyAspect1 {
      * 两种写法，切点表达式包含args，就不需要argNames参数
      * 传一个基本类型
      * */
-//    @Before(value = "execution(* com.jinyu.AOP.ProductService.output(..)) && args(a)",argNames = "a")
-    @Before("execution(* com.jinyu.AOP.ProductService.output(..)) && args(a, ..)")
+//    @Before(value = "execution(* com.jinyu.framework.AOP.ProductService.output(..)) && args(a)",argNames = "a")
+    @Before("execution(* com.jinyu.framework.AOP.ProductService.output(..)) && args(a, ..)")
     public void outputCheckParam(int a){
         System.out.println("i got the param:" + a);
     }
@@ -62,7 +60,7 @@ public class MyAspect1 {
      * 传一个对象
      * @param p
      */
-    @Before(value = "execution(* com.jinyu.AOP.ProductService.outputObject(..)) && args(p,..)")
+    @Before(value = "execution(* com.jinyu.framework.AOP.ProductService.outputObject(..)) && args(p,..)")
     public void objectParamCheck(Param p){
         System.out.println("i got the Param :" + p.getName());
     }

@@ -1,4 +1,4 @@
-package com.jinyu.DataAccess.model;
+package com.jinyu.framework.DataAccess.model;
 
 /**
  * @Description:

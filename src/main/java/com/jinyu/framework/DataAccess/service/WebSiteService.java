@@ -1,6 +1,6 @@
-package com.jinyu.DataAccess.service;
+package com.jinyu.framework.DataAccess.service;
 
-import com.jinyu.DataAccess.dao.WebSiteDao;
+import com.jinyu.framework.DataAccess.dao.WebSiteDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

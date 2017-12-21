@@ -1,4 +1,4 @@
-package com.jinyu.DataAccess.dao;
+package com.jinyu.framework.DataAccess.dao;
 
 import java.util.List;
 import java.util.Map;

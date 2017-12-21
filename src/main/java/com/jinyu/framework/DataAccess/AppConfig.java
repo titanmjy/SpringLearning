@@ -1,8 +1,8 @@
-package com.jinyu.DataAccess;
+package com.jinyu.framework.DataAccess;
 
-import com.jinyu.DataAccess.dao.WebSiteDao;
-import com.jinyu.DataAccess.dao.WebSiteDaoImpl;
-import com.jinyu.DataAccess.service.WebSiteService;
+import com.jinyu.framework.DataAccess.dao.WebSiteDao;
+import com.jinyu.framework.DataAccess.dao.WebSiteDaoImpl;
+import com.jinyu.framework.DataAccess.service.WebSiteService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;

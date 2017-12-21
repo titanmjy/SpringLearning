@@ -1,4 +1,4 @@
-package com.jinyu.DataAccess.dao;
+package com.jinyu.framework.DataAccess.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

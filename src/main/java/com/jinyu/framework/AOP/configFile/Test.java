@@ -1,8 +1,7 @@
-package com.jinyu.AOP.configFile;
+package com.jinyu.framework.AOP.configFile;
 
-import com.jinyu.AOP.ProductService;
+import com.jinyu.framework.AOP.ProductService;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 /**

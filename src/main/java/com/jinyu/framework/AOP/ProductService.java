@@ -1,6 +1,6 @@
-package com.jinyu.AOP;
+package com.jinyu.framework.AOP;
 
-import com.jinyu.AOP.annotation.Param;
+import com.jinyu.framework.AOP.annotation.Param;
 
 /**
  * 核心业务逻辑

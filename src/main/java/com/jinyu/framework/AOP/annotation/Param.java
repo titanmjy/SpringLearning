@@ -1,4 +1,4 @@
-package com.jinyu.AOP.annotation;
+package com.jinyu.framework.AOP.annotation;
 
 /**
  * @Description:

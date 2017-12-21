@@ -1,6 +1,4 @@
-package com.jinyu.AOP.JoinPointTest;
-
-import org.springframework.stereotype.Component;
+package com.jinyu.framework.AOP.JoinPointTest;
 
 /**
  * @Description:

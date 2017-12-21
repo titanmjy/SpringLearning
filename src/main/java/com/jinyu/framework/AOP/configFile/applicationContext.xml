@@ -4,14 +4,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!--核心功能bean-->
-    <bean id="productService" class="com.jinyu.AOP.ProductService"/>
+    <bean id="productService" class="com.jinyu.framework.AOP.ProductService"/>
 
     <!--周边功能bean-->
-    <bean id="myAspect" class="com.jinyu.AOP.configFile.MyAspect"/>
+    <bean id="myAspect" class="com.jinyu.framework.AOP.configFile.MyAspect"/>
 
     <!--配置aop-->
     <aop:config>
-        <aop:pointcut id="pointcutDoSomething" expression="execution(* com.jinyu.AOP.ProductService.doSomething(..))"/>
+        <aop:pointcut id="pointcutDoSomething" expression="execution(* com.jinyu.framework.AOP.ProductService.doSomething(..))"/>
         <aop:aspect id="aspect1" ref="myAspect">
             <aop:before method="doAccessCheck" pointcut-ref="pointcutDoSomething"/>
         </aop:aspect>
