@@ -1,11 +1,15 @@
 package com.jinyu.framework.AOP.JoinPointTest;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @Description:
  * @Author jinyu.mei
  * @Date 2017/12/21 13:32
  * Version: V0.1
  */
+
+@Component
 public class TargetClass {
 
     public String joint(String str1, String str2) {

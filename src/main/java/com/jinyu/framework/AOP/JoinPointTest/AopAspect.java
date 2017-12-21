@@ -6,6 +6,7 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Modifier;
 
@@ -16,6 +17,7 @@ import java.lang.reflect.Modifier;
  * Version: V0.1
  */
 @Aspect
+@Component
 public class AopAspect {
     /**
      * 定义一个切入点表达式,用来确定哪些类需要代理

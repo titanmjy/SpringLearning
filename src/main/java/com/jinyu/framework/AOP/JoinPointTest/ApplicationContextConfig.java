@@ -1,10 +1,7 @@
 package com.jinyu.framework.AOP.JoinPointTest;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.*;
 
 
 /**
@@ -16,17 +13,18 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @Configuration
 @EnableAspectJAutoProxy
+@ComponentScan(basePackages = "com.jinyu.framework.AOP.JoinPointTest")
 public class ApplicationContextConfig {
 
-    @Bean
-    AopAspect myAspect(){
-        return new AopAspect();
-    }
-
-    @Bean
-    TargetClass targetClass(){
-        return new TargetClass();
-    }
+//    @Bean
+//    AopAspect myAspect(){
+//        return new AopAspect();
+//    }
+//
+//    @Bean
+//    TargetClass targetClass(){
+//        return new TargetClass();
+//    }
 
     public static void main(String[] args) {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(ApplicationContextConfig.class);
