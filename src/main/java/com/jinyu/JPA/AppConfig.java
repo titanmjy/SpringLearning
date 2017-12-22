@@ -62,8 +62,8 @@ public class AppConfig {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(com.jinyu.JPA.AppConfig.class);
         WebSiteRepository reposity = ctx.getBean(WebSiteRepository.class);
         WebSite google = reposity.findByName("Google");
-        System.out.println(google.toString());
-
+        WebSite site = reposity.findByCountry("cn").get(0);
+        System.out.println(site.toString());
     }
 
 }

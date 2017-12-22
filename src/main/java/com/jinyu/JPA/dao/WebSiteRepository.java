@@ -1,7 +1,10 @@
 package com.jinyu.JPA.dao;
 
 import com.jinyu.JPA.model.WebSite;
+import com.sun.tools.javac.util.List;
 import org.springframework.data.repository.Repository;
+
+import java.util.ArrayList;
 
 /**
  * @Description:
@@ -11,4 +14,5 @@ import org.springframework.data.repository.Repository;
  */
 public interface WebSiteRepository extends Repository<WebSite,Integer> {
     WebSite findByName(String name);
+    ArrayList<WebSite> findByCountry(String country);
 }
