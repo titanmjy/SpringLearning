@@ -1,7 +1,7 @@
-package com.jinyu.JPA;
+package com.jinyu.JPA.SpringDataJpa;
 
-import com.jinyu.JPA.model.WebSite;
-import com.jinyu.JPA.dao.WebSiteRepository;
+import com.jinyu.JPA.SpringDataJpa.model.WebSite;
+import com.jinyu.JPA.SpringDataJpa.dao.WebSiteRepository;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -21,7 +21,7 @@ import java.util.Map;
  * Version: V0.1
  */
 @Configuration
-@EnableJpaRepositories("com.jinyu.JPA.dao")
+@EnableJpaRepositories("com.jinyu.JPA.SpringDataJpa.dao")
 public class AppConfig {
 
     @Bean
@@ -59,7 +59,7 @@ public class AppConfig {
 
 
     public static void main(String[] args) {
-        ApplicationContext ctx = new AnnotationConfigApplicationContext(com.jinyu.JPA.AppConfig.class);
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
         WebSiteRepository reposity = ctx.getBean(WebSiteRepository.class);
         WebSite google = reposity.findByName("Google");
         WebSite site = reposity.findByCountry("cn").get(0);

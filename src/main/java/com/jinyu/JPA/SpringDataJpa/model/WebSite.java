@@ -1,4 +1,4 @@
-package com.jinyu.JPA.model;
+package com.jinyu.JPA.SpringDataJpa.model;
 
 import javax.persistence.*;
 
