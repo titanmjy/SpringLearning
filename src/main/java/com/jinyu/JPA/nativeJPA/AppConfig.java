@@ -52,7 +52,7 @@ public class AppConfig {
         return factoryBean;
     }
 
-
+    // 自定义baseDao的方式需要配置事务管理
     @Bean("transactionManager")
     public PlatformTransactionManager transactionManager(){
         HibernateTransactionManager manager =  new HibernateTransactionManager();

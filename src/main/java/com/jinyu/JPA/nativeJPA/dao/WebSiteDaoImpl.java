@@ -1,6 +1,7 @@
 package com.jinyu.JPA.nativeJPA.dao;
 
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.stereotype.Component;
@@ -22,4 +23,8 @@ public class WebSiteDaoImpl extends HibernateDaoSupport implements WebSiteDao {
         //调用父类的setSessionFactory方法,注入sessionFactory
         super.setSessionFactory(sessionFactory);
     }
+
+//    这样注入会话工厂是不行的
+//    @Autowired
+//    private SessionFactory sessionFactory;
 }
