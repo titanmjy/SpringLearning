@@ -1,11 +1,11 @@
 package com.jinyu.JPA.nativeJPA.dao;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
+import org.hibernate.SessionFactory;
+import org.springframework.orm.hibernate5.HibernateTemplate;
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+import org.springframework.stereotype.Component;
 
-import java.util.List;
-import java.util.Map;
+import javax.annotation.Resource;
 
 /**
  * @Description:
@@ -13,17 +13,13 @@ import java.util.Map;
  * @Date 2017/11/28 15:28
  * Version: V0.1
  */
-@Repository
-public class WebSiteDaoImpl implements WebSiteDao {
+@Component("webSiteDao")
+public class WebSiteDaoImpl extends HibernateDaoSupport implements WebSiteDao {
 
 
-    @Override
-    public List<Map<String, Object>> get() {
-        return null;
-    }
-
-    @Override
-    public void add() {
-
+    @Resource(name="sessionFactory")
+    public void setSessionFactoryDI(SessionFactory sessionFactory) {
+        //调用父类的setSessionFactory方法,注入sessionFactory
+        super.setSessionFactory(sessionFactory);
     }
 }
