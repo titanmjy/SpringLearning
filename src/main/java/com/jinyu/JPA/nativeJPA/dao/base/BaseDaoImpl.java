@@ -5,6 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
  * @Date 2017/9/22 11:35
  * Version: V0.1
  */
+@Transactional
 public class BaseDaoImpl<T> implements BaseDao<T>{
 
     @Autowired
@@ -29,8 +31,8 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
         ParameterizedType pt =(ParameterizedType) this.getClass().getGenericSuperclass();  
         //获取第一个类型参数的真实类型  
         this.clazz = (Class<T>) pt.getActualTypeArguments()[0];  
-     } 
-    
+     }
+
     public Session getSession() {
         return this.sessionFactory.getCurrentSession();
     }
