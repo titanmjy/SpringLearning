@@ -9,8 +9,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Map;
 
@@ -22,15 +26,20 @@ import java.util.Map;
  */
 
 @Configuration
+@EnableTransactionManagement
 public class AppConfig {
 
 
+    /**
+     * 数据源
+     * @return
+     */
     @Bean
     public DataSource druidDataSource(){
         DruidDataSource datasource = new DruidDataSource();
-        datasource.setUrl("jdbc:mysql://172.16.103.201:3306/test");
+        datasource.setUrl("jdbc:mysql://127.0.0.1:3306/test");
         datasource.setUsername("root");
-        datasource.setPassword("!QAZxsw2");
+        datasource.setPassword("password");
         datasource.setDriverClassName("com.mysql.jdbc.Driver");
         datasource.setInitialSize(1);
         datasource.setMinIdle(1);
@@ -50,23 +59,42 @@ public class AppConfig {
         return new JdbcTemplate(this.druidDataSource());
     }
 
+    /**
+     * service
+     * @return
+     */
     @Bean
     public WebSiteService webSiteService(){
         return new WebSiteService();
     }
 
+    /**
+     * dao
+     * @return
+     */
     @Bean
     public WebSiteDao webSiteDao(){
         return new WebSiteDaoImpl();
     }
 
 
+//    事务管理测试
+    /**
+     * 事务管理器
+     * @return
+     */
+    @Bean
+    public PlatformTransactionManager txManager(){
+        return new DataSourceTransactionManager(druidDataSource());
+    }
+
+
     public static void main(String[] args){
         ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
         WebSiteService wservice = (WebSiteService)ctx.getBean("webSiteService");
-//        wservice.addWebSite();
-        List<Map<String, Object>> webSites = wservice.getWebSites();
-        Map<String,Object> first = webSites.get(1);
-        System.out.println(first.get("id"));
+        wservice.addWebSite();
+//        List<Map<String, Object>> webSites = wservice.getWebSites();
+//        Map<String,Object> first = webSites.get(0);
+//        System.out.println(first.get("id"));
     }
 }
